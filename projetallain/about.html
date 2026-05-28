@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos – Beluga Games</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">BELUGA</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="jeux.html">Jeux</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li class="active"><a href="about.html">À Propos</a></li>
+            </ul>
+        </div>
+        <img src="img/menu-btn.png" alt="menu" class="menu-hamburger">
+    </nav>
+
+    <header style="position:relative;">
+        <div class="page-title">
+            <h1>À Propos</h1>
+            <p>L'histoire derrière Beluga Games</p>
+        </div>
+    </header>
+
+    <div class="about-section">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>Notre Histoire</h2>
+                <p>Beluga Games est né d'une passion commune pour les jeux vidéo et l'expérience utilisateur. Notre équipe de créatifs et de développeurs travaille chaque jour pour concevoir des expériences de jeu mémorables.</p>
+                <p>Fondée en 2023, notre studio indépendant s'est donné pour mission de créer des jeux accessibles, immersifs et innovants pour tous les joueurs.</p>
+                <h2 style="margin-top:30px;">Nos Valeurs</h2>
+                <ul>
+                    <li>Innovation et créativité constante</li>
+                    <li>Accessibilité pour tous les joueurs</li>
+                    <li>Qualité et finition irréprochables</li>
+                    <li>Communauté et partage au cœur du jeu</li>
+                    <li>Jeux amusants, défis stimulants</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <img src="img/beluga.png" alt="Beluga Mascot">
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Beluga Games</h3>
+                <p>Des jeux innovants, immersifs et faits pour les passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="jeux.html">Jeux</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Email : <a href="mailto:support@belugagames.com">support@belugagames.com</a></li>
+                    <li>Tél : <a href="tel:+33707070707">+33 7 07 07 07 07</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@uratex.eu"><img src="img/tiktok.svg" alt="TikTok"></a>
+                    <a href="#"><img src="img/discord.svg" alt="Discord"></a>
+                    <a href="#"><img src="img/snapchat.svg" alt="Snapchat"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 Beluga Games. Tous droits réservés.</p></div>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('mobile-menu');
+        });
+    </script>
+</body>
+</html>

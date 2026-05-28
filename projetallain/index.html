@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beluga Games</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">BELUGA</a>
+        <div class="nav-links">
+            <ul>
+                <li class="active"><a href="index.html">Accueil</a></li>
+                <li><a href="jeux.html">Jeux</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="about.html">À Propos</a></li>
+            </ul>
+        </div>
+        <img src="img/menu-btn.png" alt="menu" class="menu-hamburger">
+    </nav>
+
+    <header class="home-header">
+        <div class="welcome-text">
+            <h1>Bienvenue chez<br>Beluga Games</h1>
+            <p>Plongez dans l'univers des jeux immersifs et innovants.</p>
+            <div class="cta-buttons">
+                <a href="jeux.html" class="btn-primary">Jouer maintenant</a>
+                <a href="about.html" class="btn-ghost">En savoir plus</a>
+            </div>
+            <img src="img/beluga.png" alt="Beluga Logo">
+        </div>
+    </header>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Beluga Games</h3>
+                <p>Des jeux innovants, immersifs et faits pour les passionnés. Rejoignez l'aventure Beluga dès aujourd'hui !</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="jeux.html">Jeux</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Email : <a href="mailto:support@belugagames.com">support@belugagames.com</a></li>
+                    <li>Tél : <a href="tel:+33707070707">+33 7 07 07 07 07</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@uratex.eu"><img src="img/tiktok.svg" alt="TikTok"></a>
+                    <a href="#"><img src="img/discord.svg" alt="Discord"></a>
+                    <a href="#"><img src="img/snapchat.svg" alt="Snapchat"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Beluga Games. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('mobile-menu');
+        });
+    </script>
+</body>
+</html>

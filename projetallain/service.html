@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services – Beluga Games</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">BELUGA</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="jeux.html">Jeux</a></li>
+                <li class="active"><a href="service.html">Services</a></li>
+                <li><a href="about.html">À Propos</a></li>
+            </ul>
+        </div>
+        <img src="img/menu-btn.png" alt="menu" class="menu-hamburger">
+    </nav>
+
+    <header style="position:relative;">
+        <div class="page-title">
+            <h1>Nos Services</h1>
+            <p>Ce que Beluga Games vous propose</p>
+        </div>
+    </header>
+
+    <div class="services-section">
+        <div class="services-grid">
+            <div class="service-card">
+                <span class="service-icon">🎮</span>
+                <h3>Développement de Jeux</h3>
+                <p>Nous concevons des jeux originaux, du concept jusqu'au déploiement, en passant par le game design et la programmation.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🎨</span>
+                <h3>Game Design</h3>
+                <p>Nos designers créent des univers visuels uniques et des mécaniques de jeu engageantes pour une expérience mémorable.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🔊</span>
+                <h3>Sound Design</h3>
+                <p>Des ambiances sonores immersives et des effets soigneusement travaillés pour plonger les joueurs dans l'univers du jeu.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">📱</span>
+                <h3>Jeux Mobile</h3>
+                <p>Des expériences optimisées pour iOS et Android, fluides et accessibles sur tous les types d'écrans.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🏆</span>
+                <h3>Tournois & Événements</h3>
+                <p>Organisation de compétitions en ligne et d'événements gaming pour animer votre communauté de joueurs.</p>
+            </div>
+            <div class="service-card">
+                <span class="service-icon">🤝</span>
+                <h3>Conseil & Stratégie</h3>
+                <p>Accompagnement stratégique pour les studios et entreprises souhaitant intégrer le gaming dans leur offre.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Beluga Games</h3>
+                <p>Des jeux innovants, immersifs et faits pour les passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="jeux.html">Jeux</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Email : <a href="mailto:support@belugagames.com">support@belugagames.com</a></li>
+                    <li>Tél : <a href="tel:+33707070707">+33 7 07 07 07 07</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@uratex.eu"><img src="img/tiktok.svg" alt="TikTok"></a>
+                    <a href="#"><img src="img/discord.svg" alt="Discord"></a>
+                    <a href="#"><img src="img/snapchat.svg" alt="Snapchat"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 Beluga Games. Tous droits réservés.</p></div>
+    </footer>
+
+    <script>
+        document.querySelector('.menu-hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('mobile-menu');
+        });
+    </script>
+</body>
+</html>

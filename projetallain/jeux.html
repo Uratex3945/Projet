@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeux – Beluga Games</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">BELUGA</a>
+        <div class="nav-links">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li class="active"><a href="jeux.html">Jeux</a></li>
+                <li><a href="service.html">Services</a></li>
+                <li><a href="about.html">À Propos</a></li>
+            </ul>
+        </div>
+        <img src="img/menu-btn.png" alt="menu" class="menu-hamburger">
+    </nav>
+
+    <header style="position:relative;">
+        <div class="page-title">
+            <h1>Nos Mini-Jeux</h1>
+            <p>Défie tes amis et bats tes records</p>
+        </div>
+    </header>
+
+    <div class="section">
+        <div class="games-grid">
+            <div class="game-card" onclick="openModal('memory')">
+                <span class="game-icon">🃏</span>
+                <h3>Memory</h3>
+                <p>Retrouve toutes les paires d'émojis cachées. Entraîne ta mémoire et bats le record de coups !</p>
+                <span class="play-btn">▶ Jouer</span>
+            </div>
+            <div class="game-card" onclick="openModal('ttt')">
+                <span class="game-icon">⭕</span>
+                <h3>Tic-Tac-Toe</h3>
+                <p>Le classique revisité avec le style Beluga. Affronte l'IA ou joue à deux sur le même écran !</p>
+                <span class="play-btn">▶ Jouer</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MEMORY MODAL -->
+    <div class="game-modal" id="modal-memory">
+        <div class="game-modal-inner">
+            <button class="modal-close" onclick="closeModal('memory')">✕</button>
+            <h2>🃏 Memory</h2>
+            <div class="game-stats">
+                <div>Coups : <span id="mem-moves">0</span></div>
+                <div>Paires : <span id="mem-pairs">0</span>/8</div>
+            </div>
+            <div class="memory-grid" id="memory-grid"></div>
+            <button class="game-btn" onclick="initMemory()">🔄 Nouvelle partie</button>
+        </div>
+    </div>
+
+    <!-- TTT MODAL -->
+    <div class="game-modal" id="modal-ttt">
+        <div class="game-modal-inner">
+            <button class="modal-close" onclick="closeModal('ttt')">✕</button>
+            <h2>⭕ Tic-Tac-Toe</h2>
+            <div class="ttt-status" id="ttt-status"><strong>Tour de X</strong></div>
+            <div class="ttt-board" id="ttt-board">
+                <div class="ttt-cell" onclick="tttClick(0)"></div>
+                <div class="ttt-cell" onclick="tttClick(1)"></div>
+                <div class="ttt-cell" onclick="tttClick(2)"></div>
+                <div class="ttt-cell" onclick="tttClick(3)"></div>
+                <div class="ttt-cell" onclick="tttClick(4)"></div>
+                <div class="ttt-cell" onclick="tttClick(5)"></div>
+                <div class="ttt-cell" onclick="tttClick(6)"></div>
+                <div class="ttt-cell" onclick="tttClick(7)"></div>
+                <div class="ttt-cell" onclick="tttClick(8)"></div>
+            </div>
+            <button class="game-btn" onclick="initTTT()">🔄 Rejouer</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>Beluga Games</h3>
+                <p>Des jeux innovants, immersifs et faits pour les passionnés.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="jeux.html">Jeux</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="about.html">À Propos</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li>Email : <a href="mailto:support@belugagames.com">support@belugagames.com</a></li>
+                    <li>Tél : <a href="tel:+33707070707">+33 7 07 07 07 07</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Suivez-nous</h4>
+                <div class="social-icons">
+                    <a href="https://www.tiktok.com/@uratex.eu"><img src="img/tiktok.svg" alt="TikTok"></a>
+                    <a href="#"><img src="img/discord.svg" alt="Discord"></a>
+                    <a href="#"><img src="img/snapchat.svg" alt="Snapchat"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom"><p>&copy; 2025 Beluga Games. Tous droits réservés.</p></div>
+    </footer>
+
+    <script>
+    // NAV
+    document.querySelector('.menu-hamburger').addEventListener('click', () => {
+        document.querySelector('.nav-links').classList.toggle('mobile-menu');
+    });
+
+    function openModal(id) {
+        document.getElementById('modal-' + id).classList.add('active');
+        document.body.style.overflow = 'hidden';
+        if (id === 'memory') initMemory();
+        if (id === 'ttt') initTTT();
+    }
+
+    function closeModal(id) {
+        document.getElementById('modal-' + id).classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    // Close on backdrop click
+    document.querySelectorAll('.game-modal').forEach(modal => {
+        modal.addEventListener('click', e => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    });
+
+    // ===== MEMORY GAME =====
+    const emojis = ['🎮','🕹️','🏆','⚡','🔥','🎯','💎','🌟'];
+    let memCards = [], memFlipped = [], memLocked = false, memMoves = 0, memPairs = 0;
+
+    function initMemory() {
+        memCards = [...emojis, ...emojis].sort(() => Math.random() - 0.5);
+        memFlipped = [];
+        memLocked = false;
+        memMoves = 0;
+        memPairs = 0;
+        document.getElementById('mem-moves').textContent = '0';
+        document.getElementById('mem-pairs').textContent = '0';
+        const grid = document.getElementById('memory-grid');
+        grid.innerHTML = '';
+        memCards.forEach((emoji, i) => {
+            const card = document.createElement('div');
+            card.className = 'memory-card';
+            card.dataset.index = i;
+            card.dataset.emoji = emoji;
+            card.innerHTML = `
+                <div class="memory-card-inner">
+                    <div class="memory-face memory-front"></div>
+                    <div class="memory-face memory-back">${emoji}</div>
+                </div>`;
+            card.addEventListener('click', () => memFlip(card));
+            grid.appendChild(card);
+        });
+    }
+
+    function memFlip(card) {
+        if (memLocked || card.classList.contains('flipped') || card.classList.contains('matched')) return;
+        card.classList.add('flipped');
+        memFlipped.push(card);
+        if (memFlipped.length === 2) {
+            memLocked = true;
+            memMoves++;
+            document.getElementById('mem-moves').textContent = memMoves;
+            const [a, b] = memFlipped;
+            if (a.dataset.emoji === b.dataset.emoji) {
+                a.classList.add('matched');
+                b.classList.add('matched');
+                memPairs++;
+                document.getElementById('mem-pairs').textContent = memPairs;
+                memFlipped = [];
+                memLocked = false;
+                if (memPairs === 8) {
+                    setTimeout(() => alert(`🏆 Bravo ! Complété en ${memMoves} coups !`), 200);
+                }
+            } else {
+                setTimeout(() => {
+                    a.classList.remove('flipped');
+                    b.classList.remove('flipped');
+                    memFlipped = [];
+                    memLocked = false;
+                }, 900);
+            }
+        }
+    }
+
+    // ===== TIC-TAC-TOE =====
+    let tttBoard = Array(9).fill('');
+    let tttCurrent = 'X';
+    let tttOver = false;
+    const wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+
+    function initTTT() {
+        tttBoard = Array(9).fill('');
+        tttCurrent = 'X';
+        tttOver = false;
+        document.querySelectorAll('.ttt-cell').forEach(c => {
+            c.className = 'ttt-cell';
+            c.textContent = '';
+        });
+        document.getElementById('ttt-status').innerHTML = '<strong>Tour de X</strong>';
+    }
+
+    function tttClick(i) {
+        if (tttOver || tttBoard[i]) return;
+        tttBoard[i] = tttCurrent;
+        const cell = document.querySelectorAll('.ttt-cell')[i];
+        cell.textContent = tttCurrent === 'X' ? '✕' : '○';
+        cell.classList.add(tttCurrent.toLowerCase(), 'taken');
+
+        const winner = checkWin();
+        if (winner) {
+            winner.forEach(idx => document.querySelectorAll('.ttt-cell')[idx].classList.add('winning'));
+            document.getElementById('ttt-status').innerHTML = `<strong>🏆 ${tttCurrent} a gagné !</strong>`;
+            tttOver = true;
+        } else if (!tttBoard.includes('')) {
+            document.getElementById('ttt-status').innerHTML = '<strong>Match nul !</strong>';
+            tttOver = true;
+        } else {
+            tttCurrent = tttCurrent === 'X' ? 'O' : 'X';
+            document.getElementById('ttt-status').innerHTML = `<strong>Tour de ${tttCurrent}</strong>`;
+        }
+    }
+
+    function checkWin() {
+        for (const [a,b,c] of wins) {
+            if (tttBoard[a] && tttBoard[a] === tttBoard[b] && tttBoard[b] === tttBoard[c]) return [a,b,c];
+        }
+        return null;
+    }
+    </script>
+</body>
+</html>
